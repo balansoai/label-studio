@@ -14,6 +14,8 @@ import logging
 import os
 import re
 from datetime import timedelta
+from dotenv import load_dotenv
+load_dotenv()
 
 from django.core.exceptions import ImproperlyConfigured
 
@@ -176,7 +178,6 @@ DATABASES_ALL = {
 }
 DATABASES_ALL['default'] = DATABASES_ALL[DJANGO_DB_POSTGRESQL]
 DATABASES = {'default': DATABASES_ALL.get(get_env('DJANGO_DB', 'default'))}
-
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
 if get_bool_env('GOOGLE_LOGGING_ENABLED', False):
